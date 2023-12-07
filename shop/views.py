@@ -7,7 +7,7 @@ def products_view(request):
     """
     Renders the products view.
     """
-    categories = Category.objects.all()
+    categories = Category.objects.filter(parent=None)
     products = ProductProxy.objects.all()
     context = {'categories': categories, 'products': products}
     return render(request, 'shop/products.html', context)
